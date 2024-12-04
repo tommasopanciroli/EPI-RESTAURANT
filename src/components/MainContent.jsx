@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Carousel, ListGroup } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 import pastasciutte from '../data/menu.json'
 import PastaComments from './PastaComments'
 // ho importato l'array di oggetti di menu.json (le paste)

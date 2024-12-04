@@ -1,6 +1,6 @@
 import { Card, Button, Alert, Spinner } from 'react-bootstrap'
 // importo un hook da react-router-dom per interagire con i parametri della rotta
-import { useParams, Redirect, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import pastasciutte from '../data/menu.json'
 import { useEffect, useState } from 'react'
 import PastaComments from './PastaComments'
