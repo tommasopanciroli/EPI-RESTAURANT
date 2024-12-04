@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Carousel, ListGroup } from 'react-bootstrap'
 import pastasciutte from '../data/menu.json'
+import PastaComments from './PastaComments'
 // ho importato l'array di oggetti di menu.json (le paste)
 // con il nome di "pastasciutte"
 
@@ -35,16 +36,12 @@ const MainContent = () => {
           )
         })}
       </Carousel>
-      <ListGroup className="mt-3">
-        {activePasta.comments.map((recensione) => {
-          return (
-            <ListGroup.Item key={recensione.id}>
-              {recensione.author} voto {recensione.rating} -{' '}
-              {recensione.comment}
-            </ListGroup.Item>
-          )
-        })}
-      </ListGroup>
+
+      {/* abbiamo dichiarato ora un componente separato per i commenti delle pastasciutte*/}
+      {/* però questo componente "PastaComments" non sa di che pasta far vedere le recensioni */}
+      {/* si aspetta di riceverle in una prop che si chiama "pasta" */}
+      <PastaComments pasta={activePasta} />
+
       <p>PREZZO PASTA CORRENTE: {activePasta.price}</p>
     </>
   )
