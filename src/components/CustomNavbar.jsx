@@ -1,7 +1,13 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const CustomNavbar = (props) => {
   console.log('PROPS DELLA NAVBAR', props)
+
+  const location = useLocation()
+  console.log('location navbar', location)
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
       <Container fluid={props.isFluid}>
@@ -9,10 +15,42 @@ const CustomNavbar = (props) => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">Menu</Nav.Link>
-            <Nav.Link href="#pricing">Prenota un tavolo</Nav.Link>
-            <Nav.Link href="#admin">Amministrazione</Nav.Link>
+            <Link
+              to={'/'}
+              className={
+                location.pathname === '/' ? 'nav-link active' : 'nav-link'
+              }
+            >
+              <div>Home</div>
+            </Link>
+            <Link
+              to={'/menu'}
+              className={
+                location.pathname === '/menu' ? 'nav-link active' : 'nav-link'
+              }
+            >
+              <div>Menu</div>
+            </Link>
+            <Link
+              to={'/prenota'}
+              className={
+                location.pathname === '/prenota'
+                  ? 'nav-link active'
+                  : 'nav-link'
+              }
+            >
+              <div>Prenota un tavolo</div>
+            </Link>
+            <Link
+              to={'/amministrazione'}
+              className={
+                location.pathname === '/amministrazione'
+                  ? 'nav-link active'
+                  : 'nav-link'
+              }
+            >
+              <div>Amministrazione</div>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
